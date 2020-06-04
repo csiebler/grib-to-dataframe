@@ -1,4 +1,4 @@
-script: train.py
+script: convert.py
 arguments: [--data-path, /data]
 target: local
 framework: Python
@@ -10,8 +10,8 @@ environment:
   python:
     userManagedDependencies: false
     interpreterPath: python
-    condaDependenciesFile: aml_config/train-conda.yml
+    condaDependenciesFile: aml_config/convert-conda.yml
   docker:
     enabled: true
     baseImage: mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
-    arguments: [-v, C:\some\local\path\to\sample-data:/data]
+    arguments: [-v, C:\Users\clsieble\dev\grib-to-dataframe\sample-data:/data]

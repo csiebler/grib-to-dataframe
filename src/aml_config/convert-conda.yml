@@ -1,0 +1,15 @@
+name: convert-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.6.8
+  - cfgrib
+  - pip:
+    # Azure Machine Learning specific dependencies (do not change!)
+    - azureml-defaults
+    # Replace those with your own dependencies (either from your Conda env or requirements.txt)
+    - numpy
+    - pandas
+    - joblib
+    - pyarrow

@@ -1,3 +1,5 @@
+script: convert.py
+arguments: [--data-path, /data]
 target: cpu-cluster
 framework: Python
 communicator: None
@@ -8,10 +10,20 @@ environment:
   python:
     userManagedDependencies: false
     interpreterPath: python
-    condaDependenciesFile: ../../src/model1/aml_config/train-conda.yml
+    condaDependenciesFile: aml_config/convert-conda.yml
   docker:
     enabled: true
     baseImage: mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
     arguments: []
 mpi:
     processCountPerNode: 1
+data:
+  mydataset:
+    dataLocation:
+      dataset:
+        id: <PUT ID HERE>
+    mechanism: mount
+    pathOnCompute: /data
+    environmentVariableName: mydataset
+    createOutputDirectories: false
+    overwrite: false
